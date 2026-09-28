@@ -24,7 +24,7 @@ void CampusLocation::setAccessibility(bool ramp, bool elevator, bool entrance, b
 
 }
 
-void CampusLocation::displayAccessibility() const {
+ void CampusLocation::displayAccessibility() const {
     cout << "\n========================================\n";
     cout << "        ACCESSIBILITY INFORMATION       \n";
     cout << "========================================\n";
