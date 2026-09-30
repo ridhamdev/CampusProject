@@ -1,0 +1,13 @@
+Gate|Main Entrance Gate|0|0|1|0|1|0|06:00 AM|11:00 PM|1|1
+Gate|North Gate|10|90|1|0|1|0|06:30 AM|10:00 PM|1|1
+Canteen|Central Campus Canteen|25|30|1|0|1|1|200|07:30 AM|09:00 PM
+Canteen|Night Food Court|75|20|1|1|1|1|120|04:00 PM|02:00 AM
+Hostel|Aryabhata Boys Hostel|80|85|1|1|1|1|150|300|1|1
+Hostel|Gargi Girls Hostel|85|40|1|1|1|1|180|360|1|1
+LectureBuilding|Sir MV Academic Complex|40|50|1|1|1|1|5|25|8|2
+LectureBuilding|Turing Computer Science Block|55|65|1|1|1|1|4|16|10|2
+Library|Vikram Sarabhai Central Library|35|60|1|1|1|1|3|8|1|1|Block C
+Parking|East Student Parking|15|10|1|0|1|0|150|Two-Wheeler
+Parking|Central Visitors Parking|30|15|1|0|1|0|80|Four-Wheeler & Accessible
+SportsFacility|Campus Sports Arena|70|10|1|0|1|1|Basketball & Badminton|1
+SportsFacility|Athletics Ground & Gym|90|15|1|0|1|1|Cricket & Fitness Center|1

@@ -1,4 +1,4 @@
-#include "hostel.h"
+#include "Hostel.h"
 
 using namespace std;
 

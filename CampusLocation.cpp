@@ -16,12 +16,36 @@ int CampusLocation::getY() const{
     return y;
 }
 
+void CampusLocation::setName(string newName) {
+    name = newName;
+}
+
+void CampusLocation::setCoordinates(int newX, int newY) {
+    x = newX;
+    y = newY;
+}
+
+bool CampusLocation::hasRamp() const {
+    return rampAvailable;
+}
+
+bool CampusLocation::hasElevator() const {
+    return elevatorAvailable;
+}
+
+bool CampusLocation::hasAccessibleEntrance() const {
+    return accessibleEntrance;
+}
+
+bool CampusLocation::hasAccessibleRestroom() const {
+    return accessibleRestroom;
+}
+
 void CampusLocation::setAccessibility(bool ramp, bool elevator, bool entrance, bool restroom) {
     rampAvailable = ramp;
     elevatorAvailable = elevator;
     accessibleEntrance = entrance;
     accessibleRestroom = restroom;
-
 }
 
  void CampusLocation::displayAccessibility() const {

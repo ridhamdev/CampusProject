@@ -1,0 +1,5 @@
+ADMIN|Admin|admin123
+STUDENT|Rahul Sharma|NU101|Computer Science|2
+STUDENT|Ananya Patel|NU102|Information Technology|3
+STUDENT|Rohan Verma|NU105|Electronics Engineering|2
+STUDENT|Ridham Mayur Shah|NU103|Computer Science|2

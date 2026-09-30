@@ -2,7 +2,7 @@
 #define HOSTEL_H
 
 #include "CampusLocation.h"
-
+using namespace std;
 class Hostel : public CampusLocation {
 private:
     int roomCount;
@@ -11,7 +11,7 @@ private:
     bool hasAccessibleEntrance;
 
 public:
-    Hostel(std::string n, int xPos, int yPos);
+    Hostel(string n, int xPos, int yPos);
 
     void displayDetails() const override;
 
@@ -19,6 +19,15 @@ public:
     void setCapacity(int students);
     void setWarden(bool warden);
     void setAccessibleEntrance(bool accessible);
+
+    int getRoomCount() const { return roomCount; }
+    int getCapacity() const { return capacity; }
+    bool getHasWarden() const { return hasWarden; }
+    bool getHasAccessibleEntrance() const { return hasAccessibleEntrance; }
+
+    string getType() const override {
+        return "Hostel";
+    }
 };
 
 #endif

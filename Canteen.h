@@ -1,24 +1,30 @@
 #ifndef CANTEEN_H
 #define CANTEEN_H
-
+#include <iostream>
 #include "CampusLocation.h"
-
+using namespace std;
 class Canteen : public CampusLocation {
 private:
     int seatingCapacity;
-    bool servesVeg;
-    bool servesNonVeg;
-    std::string openingTime;
-    std::string closingTime;
+    string openingTime;
+    string closingTime;
 
 public:
-    Canteen(std::string n, int xPos, int yPos);
+    Canteen(string canteenName, int seatingCapacity, string openingTime, string closingTime, int xPos, int yPos);
 
     void displayDetails() const override;
 
     void setSeatingCapacity(int capacity);
-    void setServesVeg(bool veg);
-    void setServesNonVeg(bool nonVeg);
-    void setOpeningTime(std::string time);
-    void setClosingTime(std::string time);
+    void setOpeningTime(string time);
+    void setClosingTime(string time);
+
+    int getSeatingCapacity() const { return seatingCapacity; }
+    string getOpeningTime() const { return openingTime; }
+    string getClosingTime() const { return closingTime; }
+
+    string getType() const override {
+        return "Canteen";
+    }
 };
+
+#endif

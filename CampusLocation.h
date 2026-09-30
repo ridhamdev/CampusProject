@@ -23,6 +23,14 @@ public:
     int getX() const;
     int getY() const;
 
+    void setName(string newName);
+    void setCoordinates(int newX, int newY);
+
+    bool hasRamp() const;
+    bool hasElevator() const;
+    bool hasAccessibleEntrance() const;
+    bool hasAccessibleRestroom() const;
+
     void setAccessibility(bool ramp, bool elevator, bool entrance, bool restroom);
     void displayAccessibility() const;
 

@@ -27,5 +27,14 @@ public:
     void setClassroomCount(int classrooms);
     void setLabCount(int labs);
     void setLiftCount(int lifts);
+
+    int getFloorCount() const { return floorCount; }
+    int getClassroomCount() const { return classroomCount; }
+    int getLabCount() const { return labCount; }
+    int getLiftCount() const { return liftCount; }
+
+    string getType() const override {
+        return "LectureBuilding";
+    }
 };
 #endif

@@ -2,23 +2,32 @@
 #define GATE_H
 
 #include "CampusLocation.h"
-
+using namespace std;
 class Gate : public CampusLocation {
 private:
-    std::string openingTime;
-    std::string closingTime;
+    string openingTime;
+    string closingTime;
     bool securityAvailable;
     bool isOpen;
 
 public:
-    Gate(std::string n, int xPos, int yPos);
+    Gate(string n, int xPos, int yPos);
 
     void displayDetails() const override;
 
-    void setOpeningTime(std::string time);
-    void setClosingTime(std::string time);
+    void setOpeningTime(string time);
+    void setClosingTime(string time);
     void setSecurity(bool security);
     void setOpen(bool open);
+
+    string getOpeningTime() const { return openingTime; }
+    string getClosingTime() const { return closingTime; }
+    bool isSecurityAvailable() const { return securityAvailable; }
+    bool getIsOpen() const { return isOpen; }
+
+    string getType() const override {
+        return "Gate";
+    }
 };
 
 #endif

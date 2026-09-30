@@ -1,0 +1,2 @@
+Library|Ramp surface is damaged near the main entrance|Pending
+Library|Lift is broken down|Pending

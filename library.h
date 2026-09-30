@@ -6,7 +6,7 @@
 using namespace std;
 class Library : public LectureBuilding {
 private:
-    std::string locatedIn;
+    string locatedIn;
 
 public:
     Library(
@@ -21,6 +21,13 @@ public:
     );
 
     void displayDetails() const override;
+
+    string getLocatedIn() const { return locatedIn; }
+    void setLocatedIn(string blockName) { locatedIn = blockName; }
+
+    string getType() const override {
+        return "Library";
+    }
 };
 
 #endif
