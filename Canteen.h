@@ -10,7 +10,7 @@ private:
     string closingTime;
 
 public:
-    Canteen(string canteenName, int seatingCapacity, string openingTime, string closingTime, int xPos, int yPos);
+    Canteen(string canteenName, int seatingCapacity, string openingTime, string closingTime);
 
     void displayDetails() const override;
 

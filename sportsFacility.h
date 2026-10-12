@@ -9,7 +9,7 @@ private:
     bool isAvailable;
 
 public:
-    SportsFacility(string n, int xPos, int yPos);
+    SportsFacility(string n);
 
     void displayDetails() const override;
 

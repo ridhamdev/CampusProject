@@ -1,28 +1,15 @@
 #include "CampusLocation.h"
 using namespace std;
-CampusLocation::CampusLocation(string n, int xPos, int yPos)
-    : name(n), x(xPos), y(yPos), rampAvailable(false), elevatorAvailable(false),
+CampusLocation::CampusLocation(string n)
+    : name(n), rampAvailable(false), elevatorAvailable(false),
       accessibleEntrance(false), accessibleRestroom(false) {}
 
 string CampusLocation::getName() const{
     return name;
 } 
 
-int CampusLocation::getX() const{
-    return x;
-}
-
-int CampusLocation::getY() const{
-    return y;
-}
-
 void CampusLocation::setName(string newName) {
     name = newName;
-}
-
-void CampusLocation::setCoordinates(int newX, int newY) {
-    x = newX;
-    y = newY;
 }
 
 bool CampusLocation::hasRamp() const {

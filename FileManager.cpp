@@ -104,11 +104,9 @@ void FileManager::saveLocations(const vector<CampusLocation*>& locations) {
     for (const auto* loc : locations) {
         if (!loc) continue;
 
-        // Base fields: Type|Name|X|Y|Ramp|Elevator|Entrance|Restroom
+        // Base fields: Type|Name|Ramp|Elevator|Entrance|Restroom
         outFile << loc->getType() << "|"
                 << loc->getName() << "|"
-                << loc->getX() << "|"
-                << loc->getY() << "|"
                 << (loc->hasRamp() ? "1" : "0") << "|"
                 << (loc->hasElevator() ? "1" : "0") << "|"
                 << (loc->hasAccessibleEntrance() ? "1" : "0") << "|"
@@ -199,21 +197,11 @@ vector<CampusLocation*> FileManager::loadLocations() {
         if (line.empty()) continue;
 
         stringstream ss(line);
-        string type, name, xStr, yStr;
+        string type, name;
         string rampStr, elevStr, entStr, restStr;
 
         getline(ss, type, '|');
         getline(ss, name, '|');
-        getline(ss, xStr, '|');
-        getline(ss, yStr, '|');
-
-        int x = 0, y = 0;
-        try {
-            if (!xStr.empty()) x = stoi(xStr);
-            if (!yStr.empty()) y = stoi(yStr);
-        } catch (...) {
-            x = 0; y = 0;
-        }
 
         bool ramp = false, elevator = false, entrance = false, restroom = false;
         if (getline(ss, rampStr, '|')) ramp = (rampStr == "1" || rampStr == "true");
@@ -234,7 +222,7 @@ vector<CampusLocation*> FileManager::loadLocations() {
             if (openTime.empty()) openTime = "08:00 AM";
             if (closeTime.empty()) closeTime = "08:00 PM";
 
-            newLoc = new Canteen(name, cap, openTime, closeTime, x, y);
+            newLoc = new Canteen(name, cap, openTime, closeTime);
         } else if (type == "Gate") {
             string openTime, closeTime, secStr, openStr;
             getline(ss, openTime, '|');
@@ -242,7 +230,7 @@ vector<CampusLocation*> FileManager::loadLocations() {
             getline(ss, secStr, '|');
             getline(ss, openStr, '|');
 
-            Gate* g = new Gate(name, x, y);
+            Gate* g = new Gate(name);
             if (!openTime.empty()) g->setOpeningTime(openTime);
             if (!closeTime.empty()) g->setClosingTime(closeTime);
             if (!secStr.empty()) g->setSecurity(secStr == "1");
@@ -255,7 +243,7 @@ vector<CampusLocation*> FileManager::loadLocations() {
             getline(ss, wardenStr, '|');
             getline(ss, accEntStr, '|');
 
-            Hostel* h = new Hostel(name, x, y);
+            Hostel* h = new Hostel(name);
             try {
                 if (!roomsStr.empty()) h->setRoomCount(stoi(roomsStr));
                 if (!capStr.empty()) h->setCapacity(stoi(capStr));
@@ -281,7 +269,7 @@ vector<CampusLocation*> FileManager::loadLocations() {
             if (!liftStr.empty()) lift = (liftStr == "1" || liftStr == "true");
             if (blockStr.empty()) blockStr = "Main Block";
 
-            newLoc = new Library(name, x, y, floors, classrooms, labs, lift, blockStr);
+            newLoc = new Library(name, floors, classrooms, labs, lift, blockStr);
         } else if (type == "LectureBuilding" || type == "Lecture Building") {
             string floorsStr, classStr, labsStr, liftStr;
             getline(ss, floorsStr, '|');
@@ -297,14 +285,14 @@ vector<CampusLocation*> FileManager::loadLocations() {
                 if (!liftStr.empty()) lifts = stoi(liftStr);
             } catch (...) {}
 
-            newLoc = new LectureBuilding(name, x, y, floors, classrooms, labs, lifts);
+            newLoc = new LectureBuilding(name, floors, classrooms, labs, lifts);
         } else if (type == "Parking") {
             string spotsStr, pType;
             getline(ss, spotsStr, '|');
             getline(ss, pType, '|');
 
             if (pType.empty()) pType = "General";
-            Parking* p = new Parking(name, pType, x, y);
+            Parking* p = new Parking(name, pType);
             try {
                 if (!spotsStr.empty()) p->setTotalSpots(stoi(spotsStr));
             } catch (...) {}
@@ -314,7 +302,7 @@ vector<CampusLocation*> FileManager::loadLocations() {
             getline(ss, sportStr, '|');
             getline(ss, availStr, '|');
 
-            SportsFacility* sf = new SportsFacility(name, x, y);
+            SportsFacility* sf = new SportsFacility(name);
             if (!sportStr.empty()) sf->setSport(sportStr);
             if (!availStr.empty()) sf->setAvailable(availStr == "1" || availStr == "true");
             newLoc = sf;

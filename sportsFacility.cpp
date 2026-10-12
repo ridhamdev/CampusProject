@@ -2,15 +2,14 @@
 
 using namespace std;
 
-SportsFacility::SportsFacility(string n, int xPos, int yPos)
-: CampusLocation(n, xPos, yPos), sport(""), isAvailable(false) {}
+SportsFacility::SportsFacility(string n)
+: CampusLocation(n), sport(""), isAvailable(false) {}
 
 void SportsFacility::displayDetails() const {
     cout << "\n========================================\n";
     cout << "         SPORTS FACILITY DETAILS        \n";
     cout << "========================================\n";
     cout << "Name: " << name << "\n";
-    cout << "Location: (" << x << ", " << y << ")\n";
     cout << "Sport: " << sport << "\n";
     cout << "Availability: " << (isAvailable ? "Available" : "Not Available") << "\n";
 }

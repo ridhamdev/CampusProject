@@ -2,15 +2,14 @@
 #include<string>
 #include "LectureBuilding.h"
 using namespace std;
-LectureBuilding::LectureBuilding(string n,int xpos,int ypos,int floors,int classrooms,int labs,int lifts)
-    : CampusLocation(n,xpos,ypos),floorCount(floors),classroomCount(classrooms),labCount(labs),liftCount(lifts) {}
+LectureBuilding::LectureBuilding(string n,int floors,int classrooms,int labs,int lifts)
+    : CampusLocation(n),floorCount(floors),classroomCount(classrooms),labCount(labs),liftCount(lifts) {}
 
 void LectureBuilding::displayDetails() const {
     cout << "\n========================================\n";
     cout << "        LECTURE BUILDING DETAILS        \n";
     cout << "========================================\n";
     cout << "Name: " << name << "\n";
-    cout << "Location: (" << x << ", " << y << ")\n";
     cout << "Floors: " << floorCount << "\n";
     cout << "Classrooms: " << classroomCount << "\n";
     cout << "Labs: " << labCount << "\n";

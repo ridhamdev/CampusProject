@@ -11,7 +11,7 @@ private:
     bool isOpen;
 
 public:
-    Gate(string n, int xPos, int yPos);
+    Gate(string n);
 
     void displayDetails() const override;
 

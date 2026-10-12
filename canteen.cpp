@@ -3,15 +3,14 @@
 using namespace std;
 
 
-Canteen::Canteen(string canteenName, int seatingCapacity, string openingTime, string closingTime, int xPos, int yPos)
-: CampusLocation(canteenName,xPos, yPos), seatingCapacity(seatingCapacity), openingTime(openingTime), closingTime(closingTime) {}
+Canteen::Canteen(string canteenName, int seatingCapacity, string openingTime, string closingTime)
+: CampusLocation(canteenName), seatingCapacity(seatingCapacity), openingTime(openingTime), closingTime(closingTime) {}
 
 void Canteen::displayDetails() const {
     cout << "\n========================================\n";
     cout << "            CANTEEN DETAILS             \n";
     cout << "========================================\n";
     cout << "Name: " << name << "\n";
-    cout << "Location: (" << x << ", " << y << ")\n";
     cout << "Seating Capacity: " << seatingCapacity << "\n";
     cout << "Opening Time: " << openingTime << "\n";
     cout << "Closing Time: " << closingTime << "\n";

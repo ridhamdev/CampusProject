@@ -8,23 +8,17 @@ using namespace std;
 class CampusLocation {
 protected:
     string name;
-    int x;
-    int y;
     bool rampAvailable;
     bool elevatorAvailable;
     bool accessibleEntrance;
     bool accessibleRestroom;
 
 public:
-    CampusLocation(string n, int xPos, int yPos);
+    CampusLocation(string n);
     virtual ~CampusLocation() {}
 
     string getName() const;
-    int getX() const;
-    int getY() const;
-
     void setName(string newName);
-    void setCoordinates(int newX, int newY);
 
     bool hasRamp() const;
     bool hasElevator() const;

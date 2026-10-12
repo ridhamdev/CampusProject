@@ -13,8 +13,6 @@ protected:
 public:
     LectureBuilding(
         string n,
-        int xPos,
-        int yPos,
         int floors,
         int classrooms,
         int labs,

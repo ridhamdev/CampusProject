@@ -387,14 +387,9 @@ void addLocationMenu(vector<CampusLocation*>& locations, FileManager& fileManage
 
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     string name;
-    int x, y;
 
     cout << "Enter Location Name: ";
     getline(cin, name);
-    cout << "Enter X Coordinate (0-100): ";
-    cin >> x;
-    cout << "Enter Y Coordinate (0-100): ";
-    cin >> y;
 
     // Accessibility features
     int rampInput, elevInput, entInput, restInput;
@@ -419,16 +414,16 @@ void addLocationMenu(vector<CampusLocation*>& locations, FileManager& fileManage
         getline(cin, openTime);
         cout << "Enter Closing Time (e.g. 09:00 PM): ";
         getline(cin, closeTime);
-        newLoc = new Canteen(name, cap, openTime, closeTime, x, y);
+        newLoc = new Canteen(name, cap, openTime, closeTime);
     } else if (choice == 2) {
-        newLoc = new Gate(name, x, y);
+        newLoc = new Gate(name);
     } else if (choice == 3) {
         int rooms, cap;
         cout << "Enter Room Count: ";
         cin >> rooms;
         cout << "Enter Total Capacity: ";
         cin >> cap;
-        Hostel* h = new Hostel(name, x, y);
+        Hostel* h = new Hostel(name);
         h->setRoomCount(rooms);
         h->setCapacity(cap);
         h->setWarden(true);
@@ -444,7 +439,7 @@ void addLocationMenu(vector<CampusLocation*>& locations, FileManager& fileManage
         cin >> labs;
         cout << "Enter Lift Count: ";
         cin >> lifts;
-        newLoc = new LectureBuilding(name, x, y, floors, classrooms, labs, lifts);
+        newLoc = new LectureBuilding(name, floors, classrooms, labs, lifts);
     } else if (choice == 5) {
         int floors, classrooms;
         string blockName;
@@ -455,7 +450,7 @@ void addLocationMenu(vector<CampusLocation*>& locations, FileManager& fileManage
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Enter Block Name (e.g. Block C): ";
         getline(cin, blockName);
-        newLoc = new Library(name, x, y, floors, classrooms, true, elevInput == 1, blockName);
+        newLoc = new Library(name, floors, classrooms, true, elevInput == 1, blockName);
     } else if (choice == 6) {
         string pType;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -464,7 +459,7 @@ void addLocationMenu(vector<CampusLocation*>& locations, FileManager& fileManage
         int spots;
         cout << "Enter Total Parking Spots: ";
         cin >> spots;
-        Parking* p = new Parking(name, pType, x, y);
+        Parking* p = new Parking(name, pType);
         p->setTotalSpots(spots);
         newLoc = p;
     } else if (choice == 7) {
@@ -472,7 +467,7 @@ void addLocationMenu(vector<CampusLocation*>& locations, FileManager& fileManage
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Enter Sport (e.g. Basketball, Badminton): ";
         getline(cin, sportName);
-        SportsFacility* sf = new SportsFacility(name, x, y);
+        SportsFacility* sf = new SportsFacility(name);
         sf->setSport(sportName);
         sf->setAvailable(true);
         newLoc = sf;
@@ -512,7 +507,6 @@ void updateLocationMenu(vector<CampusLocation*>& locations, FileManager& fileMan
     CampusLocation* loc = locations[idx - 1];
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     string newName;
-    int newX, newY;
 
     cout << "Current Name: " << loc->getName() << "\n";
     cout << "Enter New Name (leave blank to keep current): ";
@@ -520,13 +514,6 @@ void updateLocationMenu(vector<CampusLocation*>& locations, FileManager& fileMan
     if (!newName.empty()) {
         loc->setName(newName);
     }
-
-    cout << "Current Coordinates: (" << loc->getX() << ", " << loc->getY() << ")\n";
-    cout << "Enter New X Coordinate: ";
-    cin >> newX;
-    cout << "Enter New Y Coordinate: ";
-    cin >> newY;
-    loc->setCoordinates(newX, newY);
 
     fileManager.saveLocations(locations);
     cout << "\nLocation details updated and saved successfully!\n";

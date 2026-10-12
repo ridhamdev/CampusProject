@@ -9,7 +9,7 @@ private:
     int totalSpots;
     string parkingType;
 public:
-    Parking(string name, string parkingType, int xPos, int yPos);
+    Parking(string name, string parkingType);
 
     void displayDetails() const override;
 

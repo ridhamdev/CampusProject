@@ -11,8 +11,6 @@ private:
 public:
     Library(
         string n,
-        int xPos,
-        int yPos,
         int floors,
         int classrooms,
         bool labs,

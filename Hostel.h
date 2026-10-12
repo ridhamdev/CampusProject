@@ -11,7 +11,7 @@ private:
     bool hasAccessibleEntrance;
 
 public:
-    Hostel(string n, int xPos, int yPos);
+    Hostel(string n);
 
     void displayDetails() const override;
 
